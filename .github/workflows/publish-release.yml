@@ -15,6 +15,10 @@ concurrency:
   group: android-release
   cancel-in-progress: false
 
+# CVE-2026-114938: protect Java used by build/release tooling.
+env:
+  JAVA_TOOL_OPTIONS: -XX:-UseBASE64Intrinsics
+
 jobs:
   release:
     runs-on: ubuntu-latest
